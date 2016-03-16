@@ -13,6 +13,8 @@ defmodule Todo.Protocol.HTTP.Router do
   get     "/",                          Todo.Resource.Root
   get     "/users",                     Todo.Resource.Users
   get     "/users/:user",               Todo.Resource.Users.Read
+  get     "/lists/:list",               Todo.Resource.Lists.Read
+  get     "/items/:item",               Todo.Resource.Items.Read
 
   match   _,                            Todo.Resource.Error.NotFound
 end

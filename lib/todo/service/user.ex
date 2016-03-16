@@ -22,5 +22,12 @@ defmodule Todo.Service.User do
             select: u
     {:ok, Postgres.all(query)}
   end
+
+  def find_friends(id) do
+    query = from u in __MODULE__,
+            where: u.id != ^id,
+            select: u
+    {:ok, Postgres.all(query)}
+  end
 end
 
