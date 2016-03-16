@@ -7,7 +7,9 @@ defmodule Todo.Supervisor do
   end
 
   def init(_) do
-    processes = []
+    processes = [
+      worker(Todo.DB.Postgres, [])
+    ]
     {:ok, { {:one_for_one, 10, 10}, processes} }
   end
 end

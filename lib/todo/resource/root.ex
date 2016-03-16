@@ -4,7 +4,8 @@ defmodule Todo.Resource.Root do
   mediatype Mazurka.Mediatype.Hyperjson do
     action do
       %{
-        "greeting" => Greeting.world()
+        "greeting" => Greeting.world(),
+        "users" => link_to(Todo.Resource.Users)
       }
     end
   end

@@ -11,6 +11,8 @@ defmodule Todo.Protocol.HTTP.Router do
   plug :dispatch
 
   get     "/",                          Todo.Resource.Root
+  get     "/users",                     Todo.Resource.Users
+  get     "/users/:user",               Todo.Resource.Users.Read
 
   match   _,                            Todo.Resource.Error.NotFound
 end

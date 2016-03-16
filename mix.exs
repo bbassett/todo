@@ -35,12 +35,14 @@ defmodule Todo.Mixfile do
 
   defp deps do
     [{ :cowboy, "1.0.0" },
+     { :ecto, "~> 1.0.0" },
      { :etude, "~> 0.2.0" },
      { :mazurka, "~> 0.2.0" },
      { :parse_trans, github: "uwiger/parse_trans" },
      { :plug, "~> 0.13.0" },
      { :plug_wait1, "~> 0.1.2" },
      { :poison, "1.4.0", override: true },
+     { :postgrex, ">= 0.0.0" },
      { :rl, github: "camshaft/rl", only: :dev },
      { :simple_env, github: "camshaft/simple_env" },]
   end
