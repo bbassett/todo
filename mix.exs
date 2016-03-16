@@ -36,8 +36,7 @@ defmodule Todo.Mixfile do
   defp deps do
     [{ :cowboy, "1.0.0" },
      { :ecto, "~> 1.0.0" },
-     { :etude, "~> 0.2.0" },
-     { :mazurka, "~> 0.2.0" },
+     { :mazurka, "~> 0.3.33" },
      { :parse_trans, github: "uwiger/parse_trans" },
      { :plug, "~> 0.13.0" },
      { :plug_wait1, "~> 0.1.2" },

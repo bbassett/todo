@@ -16,3 +16,4 @@ cover
 *.mmdb.gz
 priv/ua/*yml
 log
+mix.lock
