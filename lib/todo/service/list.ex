@@ -1,6 +1,5 @@
 defmodule Todo.Service.List do
-  use Ecto.Schema
-  import Ecto.Query
+  use Todo.DB.Model
   alias Todo.DB.Postgres
 
   schema "todo_lists" do
@@ -9,17 +8,19 @@ defmodule Todo.Service.List do
     field :description,   :string
   end
 
+  @create_inputs_required ~w(
+    owner_id
+    title
+  )
+
+  @create_inputs_optional ~w(
+    description
+  )
+
   def get_by_user(id) do
     query = from u in __MODULE__,
             where: u.owner_id == ^id,
             select: u
     {:ok, Postgres.all(query)}
-  end
-
-  def read(id) do
-    query = from u in __MODULE__,
-            where: u.id == ^id,
-            select: u
-    {:ok, Postgres.one(query)}
   end
 end

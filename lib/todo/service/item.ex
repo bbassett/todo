@@ -1,6 +1,5 @@
 defmodule Todo.Service.Item do
-  use Ecto.Schema
-  import Ecto.Query
+  use Todo.DB.Model
   alias Todo.DB.Postgres
 
   schema "items" do
@@ -16,12 +15,5 @@ defmodule Todo.Service.Item do
             where: u.list_id == ^id,
             select: u
     {:ok, Postgres.all(query)}
-  end
-
-  def read(id) do
-    query = from u in __MODULE__,
-            where: u.id == ^id,
-            select: u
-    {:ok, Postgres.one(query)}
   end
 end

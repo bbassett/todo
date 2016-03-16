@@ -18,9 +18,12 @@ defmodule Todo.Resource.Users.Read do
         "friends" => for friend <- friends do
           link_to(Todo.Resource.Users.Read, user: friend)
         end,
-        "todo_lists" => for list <- lists do
-          link_to(Todo.Resource.Lists.Read, list: list)
-        end
+        "todo_lists" => %{
+          "collection" => for list <- lists do
+            link_to(Todo.Resource.Lists.Read, list: list)
+          end,
+          "create" => link_to(Todo.Resource.Lists.Create)
+        }
       }
     end
 
