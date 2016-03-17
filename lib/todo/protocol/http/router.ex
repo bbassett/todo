@@ -19,6 +19,8 @@ defmodule Todo.Protocol.HTTP.Router do
   get     "/",                          Todo.Resource.Root
   get     "/users",                     Todo.Resource.Users
   get     "/users/:user",               Todo.Resource.Users.Read
+  get     "/users/:user/friends",       Todo.Resource.Users.Friends
+  get     "/users/:user/lists",         Todo.Resource.Users.Lists
   get     "/lists/:list",               Todo.Resource.Lists.Read
   post    "/lists",                     Todo.Resource.Lists.Create
   get     "/items/:item",               Todo.Resource.Items.Read
