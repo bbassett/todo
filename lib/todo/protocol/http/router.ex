@@ -15,7 +15,6 @@ defmodule Todo.Protocol.HTTP.Router do
                      json_decoder: Poison
   plug :dispatch
 
-
   get     "/",                                    Todo.Resource.Root
   get     "/users",                               Todo.Resource.Users
   post    "/users",                               Todo.Resource.Users.Create
@@ -28,7 +27,7 @@ defmodule Todo.Protocol.HTTP.Router do
   post    "/users/:user/lists/:list/items",       Todo.Resource.Users.Lists.Items.Create
   get     "/users/:user/lists/:list/items/:item", Todo.Resource.Users.Lists.Items.Read
 
-  match   _,                            Todo.Resource.Error.NotFound
+  match   _,                                      Todo.Resource.Error.NotFound
 
   def link_transform(link, _conn) do
     link

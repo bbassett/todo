@@ -1,8 +1,11 @@
-defmodule Todo.Resource.Items.Read do
+defmodule Todo.Resource.Users.Lists.Items.Read do
   use Mazurka.Resource
 
   param item do
     Item.read(value)
+  end
+  param user do
+    User.read(value)
   end
 
   mediatype Mazurka.Mediatype.Hyperjson do
@@ -12,7 +15,7 @@ defmodule Todo.Resource.Items.Read do
         "description" => item.description,
         "due" => item.due_date,
         "complete" => item.complete,
-        "list" => link_to(Todo.Resource.Lists.Read, list: item.list_id)
+        "list" => link_to(Todo.Resource.Users.Lists.Read, list: item.list_id, user: user)
       }
     end
 
