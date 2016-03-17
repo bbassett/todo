@@ -10,8 +10,9 @@ defmodule Todo.Resource.Users.Lists do
     action do
       %{
         "collection" => for list <- lists do
-          link_to(Todo.Resource.Lists.Read, list: list)
-        end
+          link_to(Todo.Resource.Users.Lists.Read, list: list)
+        end,
+        "create" => link_to(Todo.Resource.Users.Lists.Create)
       }
     end
   end

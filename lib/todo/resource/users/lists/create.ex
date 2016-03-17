@@ -1,4 +1,4 @@
-defmodule Todo.Resource.Lists.Create do
+defmodule Todo.Resource.Users.Lists.Create do
   use Mazurka.Resource
 
   let user_id = 4

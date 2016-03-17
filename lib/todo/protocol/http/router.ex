@@ -16,14 +16,17 @@ defmodule Todo.Protocol.HTTP.Router do
   plug :dispatch
 
 
-  get     "/",                          Todo.Resource.Root
-  get     "/users",                     Todo.Resource.Users
-  get     "/users/:user",               Todo.Resource.Users.Read
-  get     "/users/:user/friends",       Todo.Resource.Users.Friends
-  get     "/users/:user/lists",         Todo.Resource.Users.Lists
-  get     "/lists/:list",               Todo.Resource.Lists.Read
-  post    "/lists",                     Todo.Resource.Lists.Create
-  get     "/items/:item",               Todo.Resource.Items.Read
+  get     "/",                                    Todo.Resource.Root
+  get     "/users",                               Todo.Resource.Users
+  post    "/users",                               Todo.Resource.Users.Create
+  get     "/users/:user",                         Todo.Resource.Users.Read
+  get     "/users/:user/friends",                 Todo.Resource.Users.Friends
+  get     "/users/:user/lists",                   Todo.Resource.Users.Lists
+  post    "/users/:user/lists",                   Todo.Resource.Users.Lists.Create
+  get     "/users/:user/lists/:list",             Todo.Resource.Users.Lists.Read
+  get     "/users/:user/lists/:list/items",       Todo.Resource.Users.Lists.Items
+  post    "/users/:user/lists/:list/items",       Todo.Resource.Users.Lists.Items.Create
+  get     "/users/:user/lists/:list/items/:item", Todo.Resource.Users.Lists.Items.Read
 
   match   _,                            Todo.Resource.Error.NotFound
 

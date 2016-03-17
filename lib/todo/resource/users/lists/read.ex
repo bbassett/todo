@@ -1,4 +1,4 @@
-defmodule Todo.Resource.Lists.Read do
+defmodule Todo.Resource.Users.Lists.Read do
   use Mazurka.Resource
 
   param list do
