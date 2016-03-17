@@ -1,18 +1,19 @@
 defmodule Todo.Resource.Users.Lists do
   use Mazurka.Resource
+  alias Todo.Resource.Users.Lists
 
   param user do
-    value
+    User.read(value)
   end
-  let lists = List.get_by_user(user)
+  let lists = List.get_by_user(user.id)
 
   mediatype Mazurka.Mediatype.Hyperjson do
     action do
       %{
         "collection" => for list <- lists do
-          link_to(Todo.Resource.Users.Lists.Read, list: list)
+          link_to(Lists.Read, list: list)
         end,
-        "create" => link_to(Todo.Resource.Users.Lists.Create)
+        "create" => link_to(Lists.Create)
       }
     end
   end
